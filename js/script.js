@@ -64,10 +64,10 @@ function getRndInteger(min, max) {
 const endGame = gameEnd - 16;
 
 let gamePlay = true;
-while(gamePlay === true){
-	const userNumber = parseInt(prompt('dammi numero'));
+while(gamePlay){
+	let userNumber = parseInt(prompt('numero'));
 	//use = bomba
-	if(bomb.includes(userNumber)){
+	if(bomb = userNumber){
 		gamePlay = false;
 		alert('Perdi');
 	}
