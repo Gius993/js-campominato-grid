@@ -42,34 +42,38 @@ if(userLevel === '1') {
 
 // C Funzione 1
 const bomb = generatedBomb(16, 1, gameEnd);
+console.log(bomb);
 function generatedBomb(bombNumber, minBomb, maxBomb){
-	
-
 	const randomBombArray = [];
 	while(randomBombArray.length < bombNumber) {
-		
 		const randomNumber = getRndInteger(minBomb, maxBomb);
-		
 		if(!randomBombArray.includes(randomNumber)){
 			randomBombArray.push(randomNumber);
 		}
-		
 	}
 	console.log(randomBombArray);
+	return randomBombArray;
 }
 function getRndInteger(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }
+}
 // D
 const endGame = gameEnd - 16;
-
+let incressPlay = 0;
 let gamePlay = true;
 while(gamePlay){
-	let userNumber = parseInt(prompt('numero'));
+	const userNumber = parseInt(prompt('numero'));
+	
 	//use = bomba
-	if(bomb = userNumber){
+	if(bomb.includes(userNumber)){
 		gamePlay = false;
 		alert('Perdi');
+	} else {
+		incressPlay++
+		if(endGame === incressPlay){
+			gamePlay = false;
+			alert('Hai vinto!');
+		}
 	}
 
 }
