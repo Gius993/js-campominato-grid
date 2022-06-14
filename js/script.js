@@ -12,14 +12,46 @@
 
 //impostazione
 //Preparazione:
-// 1- chiedo il livello difficolta da 1 a 3
-// 2- se 1:100 2: 81 3: 49
-// 3- genero 16 bombe
-// 4 creo condizioni vittoria numeroMax - 16 bombe
+//A 1- chiedo il livello difficolta da 1 a 3
+// B 2- se 1:100 2: 81 3: 49
+//C 3- genero 16 bombe
+//D 4 creo condizioni vittoria gameEnd - 16 bombe
 
 // fase logica
-// Durante gioco
- // chiedo numero all'utente con prompt
- // Se il numero è una bomba fine gioco perdi
- // altroimenti metto numero in array se non presente
- // se l'array è piena numeroMax - 16 ---> alert hai vinto
+//E Durante gioco
+ //F chiedo numero all'utente con prompt
+ //G Se il numero è una bomba fine gioco perdi
+ //H altroimenti metto numero in array se non presente
+ //I se l'array è piena gameEnd - 16 ---> alert hai vinto
+
+ //A
+ const userLevel = prompt('Dimmi livello da 1 a 3');
+  
+ let gameEnd;
+ // B
+
+if(userLevel === '1') {
+	gameEnd = 100;
+}else if(userLevel === '2'){
+	gameEnd = 81;
+}else if(userLevel === '3') {
+	gameEnd = 49;
+	
+}
+
+
+// C Funzione 1
+const bomb = generatedBomb(16, 1, gameEnd);
+function generatedBomb(bombNumber, minBomb, maxBomb){
+	
+
+	const randomBombArray = [];
+	for(i = 0; i < bombNumber; i++){
+		const randomNumber = getRndInteger(minBomb, maxBomb);
+		console.log(randomNumber)
+	}
+}
+
+function getRndInteger(min, max) {
+	return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
