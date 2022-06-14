@@ -18,11 +18,11 @@
 //D 4 creo condizioni vittoria gameEnd - 16 bombe
 
 // fase logica
-//E Durante gioco
- //F chiedo numero all'utente con prompt
- //G Se il numero è una bomba fine gioco perdi
- //H altroimenti metto numero in array se non presente
- //I se l'array è piena gameEnd - 16 ---> alert hai vinto
+// Durante gioco
+ // chiedo numero all'utente con prompt
+ // Se il numero è una bomba fine gioco perdi
+ //altroimenti metto numero in array se non presente
+ //se l'array è piena gameEnd - 16 ---> alert hai vinto
 
  //A
  const userLevel = prompt('Dimmi livello da 1 a 3');
@@ -46,12 +46,30 @@ function generatedBomb(bombNumber, minBomb, maxBomb){
 	
 
 	const randomBombArray = [];
-	for(i = 0; i < bombNumber; i++){
+	while(randomBombArray.length < bombNumber) {
+		
 		const randomNumber = getRndInteger(minBomb, maxBomb);
-		console.log(randomNumber)
+		
+		if(!randomBombArray.includes(randomNumber)){
+			randomBombArray.push(randomNumber);
+		}
+		
 	}
+	console.log(randomBombArray);
 }
-
 function getRndInteger(min, max) {
 	return Math.floor(Math.random() * (max - min + 1) ) + min;
   }
+// D
+const endGame = gameEnd - 16;
+
+let gamePlay = true;
+while(gamePlay === true){
+	const userNumber = parseInt(prompt('dammi numero'));
+	//use = bomba
+	if(bomb.includes(userNumber)){
+		gamePlay = false;
+		alert('Perdi');
+	}
+
+}
