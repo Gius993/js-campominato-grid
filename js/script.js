@@ -59,8 +59,8 @@ function getRndInteger(min, max) {
 }
 // D
 const endGame = gameEnd - 16;
-let incressPlay = 0;
 let gamePlay = true;
+const numberCorrect = [];
 while(gamePlay){
 	const userNumber = parseInt(prompt('numero'));
 	
@@ -69,11 +69,15 @@ while(gamePlay){
 		gamePlay = false;
 		alert('Perdi');
 	} else {
-		incressPlay++
-		if(endGame === incressPlay){
-			gamePlay = false;
-			alert('Hai vinto!');
+		
+		if(!numberCorrect.includes(userNumber)){
+			
+			numberCorrect.push(userNumber);
 		}
-	}
+		if (numberCorrect.length === endGame){
+			gamePlay = false;
+			alert('Vinci');
+		}
+	} 
 
 }
